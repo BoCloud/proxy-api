@@ -40,6 +40,7 @@ type UDPRouteStatus struct {
 	Conditions []metav1.Condition `json:"conditions,omitempty"`
 }
 
+// +genclient
 //+kubebuilder:resource:scope=Namespaced,shortName=ur
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status

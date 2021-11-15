@@ -224,6 +224,7 @@ type DefaultService struct {
 	Port *int32 `json:"port,omitempty"`
 }
 
+// +genclient
 //+kubebuilder:resource:scope=Namespaced,shortName=hr
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status

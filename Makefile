@@ -128,3 +128,6 @@ GOBIN=$(PROJECT_DIR)/bin go get $(2) ;\
 rm -rf $$TMP_DIR ;\
 }
 endef
+update-codegen:
+	chmod +x ./hack/update-codegen.sh
+	./hack/update-codegen.sh
