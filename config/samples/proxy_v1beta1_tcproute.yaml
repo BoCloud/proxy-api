@@ -1,0 +1,6 @@
+apiVersion: proxy.bocloud.io/v1beta1
+kind: TCPRoute
+metadata:
+  name: tcproute-sample
+spec:
+  # TODO(user): Add fields here

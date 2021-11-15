@@ -1,0 +1,6 @@
+apiVersion: proxy.bocloud.io/v1beta1
+kind: HTTPRoute
+metadata:
+  name: httproute-sample
+spec:
+  # TODO(user): Add fields here

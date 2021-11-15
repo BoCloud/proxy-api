@@ -1,0 +1,265 @@
+
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.7.0
+  creationTimestamp: null
+  name: httproutes.proxy.bocloud.io
+spec:
+  group: proxy.bocloud.io
+  names:
+    kind: HTTPRoute
+    listKind: HTTPRouteList
+    plural: httproutes
+    shortNames:
+    - hr
+    singular: httproute
+  scope: Namespaced
+  versions:
+  - name: v1beta1
+    schema:
+      openAPIV3Schema:
+        description: HTTPRoute is the Schema for the httproutes API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: HTTPRouteSpec defines the desired state of HTTPRoute
+            properties:
+              ingressClassName:
+                description: IngressClassName is the name of the IngressClass cluster
+                  resource.
+                type: string
+              routes:
+                description: A list of host rules used to configure the Ingress. If
+                  unspecified, or no rule matches, all traffic is sent to the default
+                  backend.
+                items:
+                  properties:
+                    host:
+                      type: string
+                    options:
+                      additionalProperties:
+                        type: string
+                      description: UserCustomBalancer 自定义nginx特殊配置,此处填写nginx配置
+                      type: object
+                    protocol:
+                      description: Protocol specifies the network protocol this listener
+                        expects to receive. default HTTP
+                      type: string
+                    proxy:
+                      properties:
+                        bufferSize:
+                          type: string
+                        buffering:
+                          type: boolean
+                        buffers:
+                          description: UpstreamBuffers defines Buffer Configuration
+                            for an Upstream.
+                          properties:
+                            number:
+                              type: integer
+                            size:
+                              type: string
+                          type: object
+                        clientMaxBodySize:
+                          type: string
+                        connectTimeout:
+                          type: string
+                        nextUpstream:
+                          type: string
+                        nextUpstreamTimeout:
+                          type: string
+                        nextUpstreamTries:
+                          type: integer
+                        readTimeout:
+                          type: string
+                        sendTimeout:
+                          type: string
+                      type: object
+                    rules:
+                      items:
+                        properties:
+                          backends:
+                            description: service
+                            items:
+                              properties:
+                                changeCookieOnFailure:
+                                  type: boolean
+                                failTimeOut:
+                                  type: integer
+                                keepalive:
+                                  type: integer
+                                matches:
+                                  items:
+                                    properties:
+                                      groupId:
+                                        description: 同组的and，不同组的or
+                                        type: integer
+                                      key:
+                                        type: string
+                                      operator:
+                                        type: string
+                                      type:
+                                        description: header or cookie
+                                        type: string
+                                      value:
+                                        description: Value is the value of HTTP Header
+                                          to be matched.
+                                        type: string
+                                    required:
+                                    - groupId
+                                    - key
+                                    - operator
+                                    - type
+                                    - value
+                                    type: object
+                                  type: array
+                                maxConns:
+                                  type: integer
+                                maxFails:
+                                  type: integer
+                                name:
+                                  description: Name is the referenced service. The
+                                    service must exist in the same namespace as the
+                                    Ingress object.
+                                  type: string
+                                options:
+                                  additionalProperties:
+                                    type: string
+                                  type: object
+                                port:
+                                  description: Port of the referenced service. is
+                                    required for a IngressServiceBackend.
+                                  format: int32
+                                  type: integer
+                                strategy:
+                                  description: 会话保持
+                                  type: string
+                                weight:
+                                  description: 灰度
+                                  format: int32
+                                  type: integer
+                              type: object
+                            type: array
+                          defaultBackend:
+                            description: 当default backend 没有配置默认404
+                            properties:
+                              responseCode:
+                                description: 自定义错误code,
+                                format: int32
+                                type: integer
+                              service:
+                                description: 与response code 冲突
+                                properties:
+                                  name:
+                                    description: Name is the referenced service. The
+                                      service must exist in the same namespace as
+                                      the Ingress object.
+                                    type: string
+                                  port:
+                                    description: Port of the referenced service. is
+                                      required for a IngressServiceBackend.
+                                    format: int32
+                                    type: integer
+                                type: object
+                            type: object
+                          options:
+                            additionalProperties:
+                              type: string
+                            description: UserCustomBalancer 自定义nginx特殊配置,此处填写nginx配置
+                            type: object
+                          path:
+                            description: Path specifies a HTTP request path matcher.
+                              If this field is not specified, a default prefix match
+                              on the "/" path is provided.
+                            type: string
+                          pathType:
+                            type: string
+                          prefixRewrite:
+                            type: string
+                          proxy:
+                            properties:
+                              bufferSize:
+                                type: string
+                              buffering:
+                                type: boolean
+                              buffers:
+                                description: UpstreamBuffers defines Buffer Configuration
+                                  for an Upstream.
+                                properties:
+                                  number:
+                                    type: integer
+                                  size:
+                                    type: string
+                                type: object
+                              clientMaxBodySize:
+                                type: string
+                              connectTimeout:
+                                type: string
+                              nextUpstream:
+                                type: string
+                              nextUpstreamTimeout:
+                                type: string
+                              nextUpstreamTries:
+                                type: integer
+                              readTimeout:
+                                type: string
+                              sendTimeout:
+                                type: string
+                            type: object
+                          rateLimit:
+                            properties:
+                              connections:
+                                type: integer
+                              rpm:
+                                type: integer
+                              rps:
+                                type: integer
+                            type: object
+                        required:
+                        - path
+                        - pathType
+                        type: object
+                      type: array
+                    tls:
+                      description: SecretName,需要和CRD在同一个namespace下
+                      properties:
+                        secret:
+                          type: string
+                      required:
+                      - secret
+                      type: object
+                  type: object
+                type: array
+                x-kubernetes-list-type: atomic
+            type: object
+          status:
+            description: HTTPRouteStatus defines the observed state of HTTPRoute
+            properties:
+              hostname:
+                type: string
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []

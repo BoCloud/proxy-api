@@ -1,0 +1,20 @@
+# permissions for end users to view httproutes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: httproute-viewer-role
+rules:
+- apiGroups:
+  - proxy.bocloud.io
+  resources:
+  - httproutes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - proxy.bocloud.io
+  resources:
+  - httproutes/status
+  verbs:
+  - get
