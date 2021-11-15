@@ -225,6 +225,7 @@ type DefaultService struct {
 }
 
 // +genclient
+//+kubebuilder:printcolumn:name="IngressClassName",type="string",priority=1,JSONPath=".spec.ingressClassName",description="The IngressClassName"
 //+kubebuilder:resource:scope=Namespaced,shortName=hr
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status

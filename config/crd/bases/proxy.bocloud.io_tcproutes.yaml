@@ -18,7 +18,13 @@ spec:
     singular: tcproute
   scope: Namespaced
   versions:
-  - name: v1beta1
+  - additionalPrinterColumns:
+    - description: The IngressClassName
+      jsonPath: .spec.ingressClassName
+      name: IngressClassName
+      priority: 1
+      type: string
+    name: v1beta1
     schema:
       openAPIV3Schema:
         description: TCPRoute is the Schema for the tcproutes API
