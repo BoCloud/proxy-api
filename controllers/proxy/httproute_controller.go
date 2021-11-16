@@ -24,7 +24,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	proxyv1beta1 "github.com/proxy-api/apis/proxy/v1beta1"
+	proxyv1beta1 "github.com/bocloud/proxy-api/apis/proxy/v1beta1"
 )
 
 // HTTPRouteReconciler reconciles a HTTPRoute object

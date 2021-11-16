@@ -18,7 +18,7 @@ limitations under the License.
 package fake
 
 import (
-	proxyv1beta1 "github.com/proxy-api/apis/proxy/v1beta1"
+	proxyv1beta1 "github.com/bocloud/proxy-api/apis/proxy/v1beta1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"

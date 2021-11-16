@@ -5,7 +5,7 @@ set -o nounset
 set -o pipefail
 
 # corresponding to go mod init <module>
-MODULE=github.com/proxy-api
+MODULE=github.com/bocloud/proxy-api
 # api package
 APIS_PKG=apis
 # generated output package

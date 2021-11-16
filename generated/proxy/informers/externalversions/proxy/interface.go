@@ -18,8 +18,8 @@ limitations under the License.
 package proxy
 
 import (
-	internalinterfaces "github.com/proxy-api/generated/proxy/informers/externalversions/internalinterfaces"
-	v1beta1 "github.com/proxy-api/generated/proxy/informers/externalversions/proxy/v1beta1"
+	internalinterfaces "github.com/bocloud/proxy-api/generated/proxy/informers/externalversions/internalinterfaces"
+	v1beta1 "github.com/bocloud/proxy-api/generated/proxy/informers/externalversions/proxy/v1beta1"
 )
 
 // Interface provides access to each of this group's versions.

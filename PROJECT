@@ -3,7 +3,7 @@ layout:
 - go.kubebuilder.io/v3
 multigroup: true
 projectName: proxy-api
-repo: github.com/proxy-api
+repo: github.com/bocloud/proxy-api
 resources:
 - api:
     crdVersion: v1
@@ -12,7 +12,7 @@ resources:
   domain: bocloud.io
   group: proxy
   kind: HTTPRoute
-  path: github.com/proxy-api/apis/proxy/v1beta1
+  path: github.com/bocloud/proxy-api/apis/proxy/v1beta1
   version: v1beta1
 - api:
     crdVersion: v1
@@ -21,7 +21,7 @@ resources:
   domain: bocloud.io
   group: proxy
   kind: TCPRoute
-  path: github.com/proxy-api/apis/proxy/v1beta1
+  path: github.com/bocloud/proxy-api/apis/proxy/v1beta1
   version: v1beta1
 - api:
     crdVersion: v1
@@ -30,6 +30,6 @@ resources:
   domain: bocloud.io
   group: proxy
   kind: UDPRoute
-  path: github.com/proxy-api/apis/proxy/v1beta1
+  path: github.com/bocloud/proxy-api/apis/proxy/v1beta1
   version: v1beta1
 version: "3"

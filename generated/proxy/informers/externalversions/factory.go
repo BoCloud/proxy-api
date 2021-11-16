@@ -22,9 +22,9 @@ import (
 	sync "sync"
 	time "time"
 
-	versioned "github.com/proxy-api/generated/proxy/clientset/versioned"
-	internalinterfaces "github.com/proxy-api/generated/proxy/informers/externalversions/internalinterfaces"
-	proxy "github.com/proxy-api/generated/proxy/informers/externalversions/proxy"
+	versioned "github.com/bocloud/proxy-api/generated/proxy/clientset/versioned"
+	internalinterfaces "github.com/bocloud/proxy-api/generated/proxy/informers/externalversions/internalinterfaces"
+	proxy "github.com/bocloud/proxy-api/generated/proxy/informers/externalversions/proxy"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"

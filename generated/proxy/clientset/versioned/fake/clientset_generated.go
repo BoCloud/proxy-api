@@ -18,9 +18,9 @@ limitations under the License.
 package fake
 
 import (
-	clientset "github.com/proxy-api/generated/proxy/clientset/versioned"
-	proxyv1beta1 "github.com/proxy-api/generated/proxy/clientset/versioned/typed/proxy/v1beta1"
-	fakeproxyv1beta1 "github.com/proxy-api/generated/proxy/clientset/versioned/typed/proxy/v1beta1/fake"
+	clientset "github.com/bocloud/proxy-api/generated/proxy/clientset/versioned"
+	proxyv1beta1 "github.com/bocloud/proxy-api/generated/proxy/clientset/versioned/typed/proxy/v1beta1"
+	fakeproxyv1beta1 "github.com/bocloud/proxy-api/generated/proxy/clientset/versioned/typed/proxy/v1beta1/fake"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/discovery"

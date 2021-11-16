@@ -1,4 +1,4 @@
-module github.com/proxy-api
+module github.com/bocloud/proxy-api
 
 go 1.17
 

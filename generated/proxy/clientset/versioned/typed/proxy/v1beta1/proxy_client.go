@@ -18,8 +18,8 @@ limitations under the License.
 package v1beta1
 
 import (
-	v1beta1 "github.com/proxy-api/apis/proxy/v1beta1"
-	"github.com/proxy-api/generated/proxy/clientset/versioned/scheme"
+	v1beta1 "github.com/bocloud/proxy-api/apis/proxy/v1beta1"
+	"github.com/bocloud/proxy-api/generated/proxy/clientset/versioned/scheme"
 	rest "k8s.io/client-go/rest"
 )
 

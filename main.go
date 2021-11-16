@@ -31,8 +31,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	proxyv1beta1 "github.com/proxy-api/apis/proxy/v1beta1"
-	proxycontrollers "github.com/proxy-api/controllers/proxy"
+	proxyv1beta1 "github.com/bocloud/proxy-api/apis/proxy/v1beta1"
+	proxycontrollers "github.com/bocloud/proxy-api/controllers/proxy"
 	//+kubebuilder:scaffold:imports
 )
 

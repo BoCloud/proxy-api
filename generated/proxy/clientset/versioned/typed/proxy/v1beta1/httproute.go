@@ -21,8 +21,8 @@ import (
 	"context"
 	"time"
 
-	v1beta1 "github.com/proxy-api/apis/proxy/v1beta1"
-	scheme "github.com/proxy-api/generated/proxy/clientset/versioned/scheme"
+	v1beta1 "github.com/bocloud/proxy-api/apis/proxy/v1beta1"
+	scheme "github.com/bocloud/proxy-api/generated/proxy/clientset/versioned/scheme"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	types "k8s.io/apimachinery/pkg/types"
 	watch "k8s.io/apimachinery/pkg/watch"

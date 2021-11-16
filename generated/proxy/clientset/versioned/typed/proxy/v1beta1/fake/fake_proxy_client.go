@@ -18,7 +18,7 @@ limitations under the License.
 package fake
 
 import (
-	v1beta1 "github.com/proxy-api/generated/proxy/clientset/versioned/typed/proxy/v1beta1"
+	v1beta1 "github.com/bocloud/proxy-api/generated/proxy/clientset/versioned/typed/proxy/v1beta1"
 	rest "k8s.io/client-go/rest"
 	testing "k8s.io/client-go/testing"
 )

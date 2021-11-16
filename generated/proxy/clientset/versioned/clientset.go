@@ -20,7 +20,7 @@ package versioned
 import (
 	"fmt"
 
-	proxyv1beta1 "github.com/proxy-api/generated/proxy/clientset/versioned/typed/proxy/v1beta1"
+	proxyv1beta1 "github.com/bocloud/proxy-api/generated/proxy/clientset/versioned/typed/proxy/v1beta1"
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"
