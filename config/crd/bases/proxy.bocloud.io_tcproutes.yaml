@@ -48,13 +48,18 @@ spec:
                 description: IngressClassName is the name of the IngressClass cluster
                   resource.
                 type: string
-              services:
+              streams:
                 items:
                   properties:
                     port:
                       format: int32
                       type: integer
-                    secretName:
+                    serviceName:
+                      type: string
+                    servicePort:
+                      format: int32
+                      type: integer
+                    tls:
                       description: SecretName,需要和CRD在同一个namespace下
                       properties:
                         secret:
@@ -62,11 +67,6 @@ spec:
                       required:
                       - secret
                       type: object
-                    serviceName:
-                      type: string
-                    servicePort:
-                      format: int32
-                      type: integer
                   type: object
                 type: array
             type: object

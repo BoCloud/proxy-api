@@ -29,7 +29,7 @@ type TCPRouteSpec struct {
 	// +optional
 	IngressClassName *string `json:"ingressClassName,omitempty"`
 	// +optional
-	Streams []Stream `json:"services,omitempty"`
+	Streams []Stream `json:"streams,omitempty"`
 }
 
 type Stream struct {
@@ -37,7 +37,7 @@ type Stream struct {
 	Port int32 `json:"port,omitempty"`
 	// SecretName,需要和CRD在同一个namespace下
 	// +optional
-	TLS *TLS `json:"secretName,omitempty"`
+	TLS *TLS `json:"tls,omitempty"`
 	// +optional
 	ServiceName string `json:"serviceName,omitempty"`
 	// +optional

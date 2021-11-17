@@ -29,7 +29,7 @@ type UDPRouteSpec struct {
 	// +optional
 	IngressClassName *string `json:"ingressClassName,omitempty"`
 	// +optional
-	Streams []Stream `json:"services,omitempty"`
+	Streams []Stream `json:"streams,omitempty"`
 }
 
 // UDPRouteStatus defines the observed state of UDPRoute
