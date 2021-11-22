@@ -41,7 +41,7 @@ type UDPRouteStatus struct {
 }
 
 // +genclient
-//+kubebuilder:printcolumn:name="IngressClassName",type="string",priority=1,JSONPath=".spec.ingressClassName",description="The IngressClassName"
+//+kubebuilder:printcolumn:name="IngressClassName",type="string",priority=0,JSONPath=".spec.ingressClassName",description="The IngressClassName"
 //+kubebuilder:resource:scope=Namespaced,shortName=ur
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
