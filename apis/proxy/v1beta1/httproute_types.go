@@ -65,7 +65,7 @@ type Route struct {
 	// +optional
 	Rules []HTTPRouteRule `json:"rules,omitempty"`
 	// +optional
-	Proxy Proxy `json:"proxy,omitempty"`
+	Proxy *Proxy `json:"proxy,omitempty"`
 	// UserCustomBalancer
 	// 自定义nginx特殊配置,此处填写nginx配置
 	// +optional
@@ -94,7 +94,7 @@ type HTTPRouteRule struct {
 	// +optional
 	Rewrite string `json:"rewrite,omitempty"`
 	// +optional
-	Proxy Proxy `json:"proxy,omitempty"`
+	Proxy *Proxy `json:"proxy,omitempty"`
 	// +optional
 	RateLimit RateLimit `json:"rateLimit,omitempty"`
 	// UserCustomBalancer
