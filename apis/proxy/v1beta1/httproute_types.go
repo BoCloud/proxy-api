@@ -92,7 +92,7 @@ type HTTPRouteRule struct {
 	Path     string    `json:"path"`
 	PathType *PathType `json:"pathType"`
 	// +optional
-	PrefixRewrite string `json:"prefixRewrite,omitempty"`
+	Rewrite string `json:"rewrite,omitempty"`
 	// +optional
 	Proxy Proxy `json:"proxy,omitempty"`
 	// +optional

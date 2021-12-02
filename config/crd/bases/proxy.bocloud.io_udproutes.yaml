@@ -22,7 +22,6 @@ spec:
     - description: The IngressClassName
       jsonPath: .spec.ingressClassName
       name: IngressClassName
-      priority: 0
       type: string
     name: v1beta1
     schema:

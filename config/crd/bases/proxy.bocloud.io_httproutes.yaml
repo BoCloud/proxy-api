@@ -22,7 +22,6 @@ spec:
     - description: The IngressClassName
       jsonPath: .spec.ingressClassName
       name: IngressClassName
-      priority: 0
       type: string
     name: v1beta1
     schema:
@@ -194,8 +193,6 @@ spec:
                             type: string
                           pathType:
                             type: string
-                          prefixRewrite:
-                            type: string
                           proxy:
                             properties:
                               bufferSize:
@@ -235,6 +232,8 @@ spec:
                               rps:
                                 type: integer
                             type: object
+                          rewrite:
+                            type: string
                         required:
                         - path
                         - pathType
