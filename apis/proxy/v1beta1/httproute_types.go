@@ -146,14 +146,6 @@ type Proxy struct {
 	ProxyMaxTempFileSize string `json:"proxyMaxTempFileSize,omitempty"`
 }
 
-// UpstreamBuffers defines Buffer Configuration for an Upstream.
-type UpstreamBuffers struct {
-	// +optional
-	Number int `json:"number,omitempty"`
-	// +optional
-	Size string `json:"size,omitempty"`
-}
-
 type RateLimit struct {
 	// +optional
 	Connections int `json:"connections,omitempty"`
