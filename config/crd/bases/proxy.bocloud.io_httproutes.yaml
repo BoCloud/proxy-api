@@ -66,33 +66,40 @@ spec:
                       type: string
                     proxy:
                       properties:
+                        bodySize:
+                          type: string
                         bufferSize:
                           type: string
-                        buffering:
-                          type: boolean
-                        buffers:
-                          description: UpstreamBuffers defines Buffer Configuration
-                            for an Upstream.
-                          properties:
-                            number:
-                              type: integer
-                            size:
-                              type: string
-                          type: object
-                        clientMaxBodySize:
-                          type: string
+                        buffersNumber:
+                          type: integer
                         connectTimeout:
+                          type: integer
+                        cookieDomain:
+                          type: string
+                        cookiePath:
                           type: string
                         nextUpstream:
                           type: string
                         nextUpstreamTimeout:
-                          type: string
+                          type: integer
                         nextUpstreamTries:
                           type: integer
+                        proxyBuffering:
+                          type: string
+                        proxyHTTPVersion:
+                          type: string
+                        proxyMaxTempFileSize:
+                          type: string
+                        proxyRedirectFrom:
+                          type: string
+                        proxyRedirectTo:
+                          type: string
                         readTimeout:
+                          type: integer
+                        requestBuffering:
                           type: string
                         sendTimeout:
-                          type: string
+                          type: integer
                       type: object
                     rules:
                       items:
@@ -195,33 +202,40 @@ spec:
                             type: string
                           proxy:
                             properties:
+                              bodySize:
+                                type: string
                               bufferSize:
                                 type: string
-                              buffering:
-                                type: boolean
-                              buffers:
-                                description: UpstreamBuffers defines Buffer Configuration
-                                  for an Upstream.
-                                properties:
-                                  number:
-                                    type: integer
-                                  size:
-                                    type: string
-                                type: object
-                              clientMaxBodySize:
-                                type: string
+                              buffersNumber:
+                                type: integer
                               connectTimeout:
+                                type: integer
+                              cookieDomain:
+                                type: string
+                              cookiePath:
                                 type: string
                               nextUpstream:
                                 type: string
                               nextUpstreamTimeout:
-                                type: string
+                                type: integer
                               nextUpstreamTries:
                                 type: integer
+                              proxyBuffering:
+                                type: string
+                              proxyHTTPVersion:
+                                type: string
+                              proxyMaxTempFileSize:
+                                type: string
+                              proxyRedirectFrom:
+                                type: string
+                              proxyRedirectTo:
+                                type: string
                               readTimeout:
+                                type: integer
+                              requestBuffering:
                                 type: string
                               sendTimeout:
-                                type: string
+                                type: integer
                             type: object
                           rateLimit:
                             properties:

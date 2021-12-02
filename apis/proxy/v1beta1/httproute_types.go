@@ -111,25 +111,39 @@ type HTTPRouteRule struct {
 
 type Proxy struct {
 	// +optional
-	ProxyConnectTimeout string `json:"connectTimeout,omitempty"`
+	BodySize string `json:"bodySize,omitempty"`
 	// +optional
-	ProxyReadTimeout string `json:"readTimeout,omitempty"`
+	ConnectTimeout int `json:"connectTimeout,omitempty"`
 	// +optional
-	ProxySendTimeout string `json:"sendTimeout,omitempty"`
+	SendTimeout int `json:"sendTimeout,omitempty"`
 	// +optional
-	ProxyNextUpstream string `json:"nextUpstream,omitempty"`
+	ReadTimeout int `json:"readTimeout,omitempty"`
 	// +optional
-	ProxyNextUpstreamTimeout string `json:"nextUpstreamTimeout,omitempty"`
+	BuffersNumber int `json:"buffersNumber,omitempty"`
 	// +optional
-	ProxyNextUpstreamTries int `json:"nextUpstreamTries,omitempty"`
+	BufferSize string `json:"bufferSize,omitempty"`
 	// +optional
-	ProxyBuffering *bool `json:"buffering,omitempty"`
+	CookieDomain string `json:"cookieDomain,omitempty"`
 	// +optional
-	ProxyBuffers *UpstreamBuffers `json:"buffers,omitempty"`
+	CookiePath string `json:"cookiePath,omitempty"`
 	// +optional
-	ProxyBufferSize string `json:"bufferSize,omitempty"`
+	NextUpstream string `json:"nextUpstream,omitempty"`
 	// +optional
-	ClientMaxBodySize string `json:"clientMaxBodySize,omitempty"`
+	NextUpstreamTimeout int `json:"nextUpstreamTimeout,omitempty"`
+	// +optional
+	NextUpstreamTries int `json:"nextUpstreamTries,omitempty"`
+	// +optional
+	ProxyRedirectFrom string `json:"proxyRedirectFrom,omitempty"`
+	// +optional
+	ProxyRedirectTo string `json:"proxyRedirectTo,omitempty"`
+	// +optional
+	RequestBuffering string `json:"requestBuffering,omitempty"`
+	// +optional
+	ProxyBuffering string `json:"proxyBuffering,omitempty"`
+	// +optional
+	ProxyHTTPVersion string `json:"proxyHTTPVersion,omitempty"`
+	// +optional
+	ProxyMaxTempFileSize string `json:"proxyMaxTempFileSize,omitempty"`
 }
 
 // UpstreamBuffers defines Buffer Configuration for an Upstream.
