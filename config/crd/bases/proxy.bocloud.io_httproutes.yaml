@@ -53,12 +53,36 @@ spec:
                   backend.
                 items:
                   properties:
+                    cors:
+                      description: Cors contains the Cors configuration to be used
+                        in the HttpRoute
+                      properties:
+                        corsAllowCredentials:
+                          type: boolean
+                        corsAllowHeaders:
+                          type: string
+                        corsAllowMethods:
+                          type: string
+                        corsAllowOrigin:
+                          type: string
+                        corsExposeHeaders:
+                          type: string
+                        corsMaxAge:
+                          type: integer
+                      required:
+                      - corsAllowCredentials
+                      - corsAllowHeaders
+                      - corsAllowMethods
+                      - corsAllowOrigin
+                      - corsExposeHeaders
+                      - corsMaxAge
+                      type: object
                     host:
                       type: string
                     options:
                       additionalProperties:
                         type: string
-                      description: UserCustomBalancer 自定义nginx特殊配置,此处填写nginx配置
+                      description: 自定义nginx特殊配置
                       type: object
                     protocol:
                       description: Protocol specifies the network protocol this listener
@@ -166,15 +190,40 @@ spec:
                                   type: integer
                               type: object
                             type: array
+                          cors:
+                            description: Cors contains the Cors configuration to be
+                              used in the HttpRoute
+                            properties:
+                              corsAllowCredentials:
+                                type: boolean
+                              corsAllowHeaders:
+                                type: string
+                              corsAllowMethods:
+                                type: string
+                              corsAllowOrigin:
+                                type: string
+                              corsExposeHeaders:
+                                type: string
+                              corsMaxAge:
+                                type: integer
+                            required:
+                            - corsAllowCredentials
+                            - corsAllowHeaders
+                            - corsAllowMethods
+                            - corsAllowOrigin
+                            - corsExposeHeaders
+                            - corsMaxAge
+                            type: object
                           defaultBackend:
                             description: 当default backend 没有配置默认404
                             properties:
-                              responseCode:
-                                description: 自定义错误code,
-                                format: int32
-                                type: integer
+                              errorCode:
+                                description: 自定义错误code
+                                items:
+                                  type: integer
+                                type: array
                               service:
-                                description: 与response code 冲突
+                                description: 与response code
                                 properties:
                                   name:
                                     description: Name is the referenced service. The
@@ -191,7 +240,7 @@ spec:
                           options:
                             additionalProperties:
                               type: string
-                            description: UserCustomBalancer 自定义nginx特殊配置,此处填写nginx配置
+                            description: 自定义nginx特殊配置
                             type: object
                           path:
                             description: Path specifies a HTTP request path matcher.
@@ -254,7 +303,7 @@ spec:
                         type: object
                       type: array
                     tls:
-                      description: SecretName,需要和CRD在同一个namespace下
+                      description: SecretName,需要和HttpRoute在同一个namespace下
                       properties:
                         secret:
                           type: string

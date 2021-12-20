@@ -58,16 +58,16 @@ type Route struct {
 	// +optional
 	// default HTTP
 	Protocol ProtocolType `json:"protocol,omitempty"`
-
-	// SecretName,需要和CRD在同一个namespace下
+	// SecretName,需要和HttpRoute在同一个namespace下
 	// +optional
 	TLS *TLS `json:"tls,omitempty"`
 	// +optional
 	Rules []HTTPRouteRule `json:"rules,omitempty"`
 	// +optional
 	Proxy *Proxy `json:"proxy,omitempty"`
-	// UserCustomBalancer
-	// 自定义nginx特殊配置,此处填写nginx配置
+	// +optional
+	Cors *Cors `json:"cors,omitempty"`
+	// 自定义nginx特殊配置
 	// +optional
 	Options map[string]string `json:"options,omitempty"`
 }
@@ -96,9 +96,10 @@ type HTTPRouteRule struct {
 	// +optional
 	Proxy *Proxy `json:"proxy,omitempty"`
 	// +optional
+	Cors *Cors `json:"cors,omitempty"`
+	// +optional
 	RateLimit RateLimit `json:"rateLimit,omitempty"`
-	// UserCustomBalancer
-	// 自定义nginx特殊配置,此处填写nginx配置
+	// 自定义nginx特殊配置
 	// +optional
 	Options map[string]string `json:"options,omitempty"`
 	// service
@@ -211,12 +212,12 @@ type Backend struct {
 }
 
 type DefaultBackend struct {
-	// 与response code 冲突
+	// 与response code
 	// +optional
 	Service *DefaultService `json:"service,omitempty"`
-	// 自定义错误code,
+	// 自定义错误code
 	// +optional
-	ResponseCode *int32 `json:"responseCode,omitempty"`
+	ErrorCode []int `json:"errorCode,omitempty"`
 }
 
 type DefaultService struct {
@@ -228,6 +229,16 @@ type DefaultService struct {
 	// is required for a IngressServiceBackend.
 	// +optional
 	Port *int32 `json:"port,omitempty"`
+}
+
+// Cors contains the Cors configuration to be used in the HttpRoute
+type Cors struct {
+	CorsAllowOrigin      string `json:"corsAllowOrigin"`
+	CorsAllowMethods     string `json:"corsAllowMethods"`
+	CorsAllowHeaders     string `json:"corsAllowHeaders"`
+	CorsAllowCredentials bool   `json:"corsAllowCredentials"`
+	CorsExposeHeaders    string `json:"corsExposeHeaders"`
+	CorsMaxAge           int    `json:"corsMaxAge"`
 }
 
 // +genclient
