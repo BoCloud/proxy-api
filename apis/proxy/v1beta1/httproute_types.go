@@ -233,12 +233,18 @@ type DefaultService struct {
 
 // Cors contains the Cors configuration to be used in the HttpRoute
 type Cors struct {
-	CorsAllowOrigin      string `json:"corsAllowOrigin"`
-	CorsAllowMethods     string `json:"corsAllowMethods"`
-	CorsAllowHeaders     string `json:"corsAllowHeaders"`
-	CorsAllowCredentials bool   `json:"corsAllowCredentials"`
-	CorsExposeHeaders    string `json:"corsExposeHeaders"`
-	CorsMaxAge           int    `json:"corsMaxAge"`
+	// +optional
+	CorsAllowOrigin string `json:"corsAllowOrigin,omitempty"`
+	// +optional
+	CorsAllowMethods string `json:"corsAllowMethods,omitempty"`
+	// +optional
+	CorsAllowHeaders string `json:"corsAllowHeaders,omitempty"`
+	// +optional
+	CorsAllowCredentials bool `json:"corsAllowCredentials,omitempty"`
+	// +optional
+	CorsExposeHeaders string `json:"corsExposeHeaders,omitempty"`
+	// +optional
+	CorsMaxAge int `json:"corsMaxAge,omitempty"`
 }
 
 // +genclient
