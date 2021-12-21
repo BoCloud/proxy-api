@@ -6,4 +6,4 @@
 
 #### 修改CRD字段
 
-- 修改CRD字段后执行make manifests即可
+- 修改CRD字段后执行make manifests,make controller-gen即可
