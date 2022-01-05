@@ -1,23 +1,23 @@
-#### 概念：
+#### HTTPRoute
 
-- httproute是Kubernetes中的一种自定义资源，在Kubernetes中使用httproute来定义http路由信息，Nginx Controller会监听该资源的创建、更新、删除等事件并同步更新Nginx配置。当在集群中创建httproute，Nginx Controller会首先对该资源的配置进行检查，检查通过后则httproute创建成功，Nginx Controller接收到httproute的创建成功事件并更新Nginx配置。
+- HTTPRoute是Kubernetes中的一种自定义资源，在Kubernetes中使用HTTPRoute来定义http路由信息，Ingress Controller会监听该资源的创建、更新、删除等事件并同步更新Nginx配置。当在集群中创建HTTPRoute，Ingress Controller会首先对该资源的配置进行检查，检查通过后则HTTPRoute创建成功，Ingress Controller接收到HTTPRoute的创建成功事件并更新Nginx配置。
 
-- Nginx对七层协议的功能支持非常强大，也因此httproute的设计相对tcproute/udproute复杂的多，并且在充分考虑了Nginx功能特性情况下扩展支持多种灰度发布方案。
+- Nginx对七层协议的功能支持非常强大，也因此HTTPRoute的设计相对TCPRoute/UDPRoute复杂的多，并且在充分考虑了Nginx功能特性情况下扩展支持多种灰度发布方案。
 
-- 定义文件位置： [httproute](../apis/proxy/v1beta1/httproute_types.go)
+- 文件位置： [httproute](../apis/proxy/v1beta1/httproute_types.go)
 
-- 规定：定义文件中字段注释存在 +unsupported，表示Nginx Controller尚未支持该项配置
+- 规定：文件中字段注释存在 +unsupported，表示Ingress Controller尚未支持该项配置
 
 
 
-#### 定义
+#### 资源定义
 
 ##### 主体字段：
 
 - httproute支持配置多个域名、域名下多个path、每个path又有不同的配置且每个path支持不同的灰度服务，所以其配置非常复杂
 - 我们拆成几部分来讲述各个字段的功能含义，如是静态配置会具体到该配置会应用到Nginx的哪个配置字段
 
-| 字段                            | 类型                   | 必填 | 功能描述                                                     | 示例           |
+| 字段                            | 类型                   | 必填 | 描述                                                         | 示例           |
 | ------------------------------- | ---------------------- | ---- | ------------------------------------------------------------ | -------------- |
 | Spec.IngressClassName           | *string                | 否   | IngressClass的名称，如果为空则使用默认IngressClass，用于指定哪个Controller处理此资源 | nginx          |
 | Spec.Routes                     | array[Route]           | 是   | 多组http路由配置                                             |                |
@@ -87,7 +87,6 @@
 |                  |      |      |          |      |
 
 
-
 ##### Spec.Routes[0].Route.Rules[0].HTTPRouteRule
 
 - 定义http路由信息，应用于Nginx location阶段
@@ -108,7 +107,6 @@
 | DefaultBackend        | *struct[DefaultBackend] | 否   | 默认服务，截获后端                           |          |
 
 
-
 ##### Spec.Routes[0].Route.Rules[0].HTTPRouteRule[0].Backend
 
 | 字段                  | 类型              | 必填 | 功能描述    | 示例     |
@@ -126,9 +124,7 @@
 | Options               | map[string]string | 否   |             | 尚未支持 |
 
 
-
 ##### Spec.Routes[0].Route.Rules[0].HTTPRouteRule[0].DefaultBackend
-
 
 
 | 字段         | 类型            | 必填 | 功能描述        | 示例           |
@@ -143,7 +139,6 @@
 ##### Spec.Routes[0].Route.Rules[0].HTTPRouteRule[0].Backend[0].HTTPMatch
 
 
-
 | 字段     | 类型   | 必填 | 功能描述                | 示例   |
 | -------- | ------ | ---- | ----------------------- | ------ |
 | Type     | string | 是   | 可选值: header / cookie | header |
@@ -151,7 +146,6 @@
 | Key      | string | 是   | key名称                 |        |
 | Operator | stirng | 是   | 操作                    |        |
 | Value    | strng  | 是   | 值                      |        |
-
 
 
 #### 示例
