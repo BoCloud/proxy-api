@@ -27,21 +27,16 @@ import (
 type TCPRouteSpec struct {
 	// IngressClassName is the name of the IngressClass cluster resource.
 	// +optional
-	IngressClassName *string `json:"ingressClassName,omitempty"`
-	// +optional
-	Streams []Stream `json:"streams,omitempty"`
+	IngressClassName *string  `json:"ingressClassName,omitempty"`
+	Streams          []Stream `json:"streams"`
 }
 
 type Stream struct {
-	// +optional
-	Port int32 `json:"port,omitempty"`
-	// SecretName,需要和CRD在同一个namespace下
-	// +optional
-	TLS *TLS `json:"tls,omitempty"`
-	// +optional
-	ServiceName string `json:"serviceName,omitempty"`
-	// +optional
-	ServicePort int32 `json:"servicePort,omitempty"`
+	Port int32 `json:"port"`
+	// +optional +unsupported
+	TLS         *TLS   `json:"tls,omitempty"`
+	ServiceName string `json:"serviceName"`
+	ServicePort int32  `json:"servicePort"`
 }
 
 // TCPRouteStatus defines the observed state of TCPRoute

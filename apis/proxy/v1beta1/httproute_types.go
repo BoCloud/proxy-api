@@ -36,7 +36,7 @@ type HTTPRouteSpec struct {
 
 // HTTPRouteStatus defines the observed state of HTTPRoute
 type HTTPRouteStatus struct {
-	// +optional
+	// +optional +unsupported
 	Hostname string `json:"hostname,omitempty"`
 }
 
@@ -58,7 +58,6 @@ type Route struct {
 	// +optional
 	// default HTTP
 	Protocol ProtocolType `json:"protocol,omitempty"`
-	// SecretName,需要和HttpRoute在同一个namespace下
 	// +optional
 	TLS *TLS `json:"tls,omitempty"`
 	// +optional
@@ -67,13 +66,14 @@ type Route struct {
 	Proxy *Proxy `json:"proxy,omitempty"`
 	// +optional
 	Cors *Cors `json:"cors,omitempty"`
-	// 自定义nginx特殊配置
+	// 特殊配置支持
 	// +optional
 	Options map[string]string `json:"options,omitempty"`
 }
 
 // TLS defines TLS configuration for a VirtualServer.
 type TLS struct {
+	// SecretName,需要和CRD在同一个namespace下
 	Secret string `json:"secret"`
 }
 
@@ -105,7 +105,6 @@ type HTTPRouteRule struct {
 	// service
 	// +optional
 	Backends []Backend `json:"backends,omitempty"`
-	// 当default backend 没有配置默认404
 	// +optional
 	DefaultBackend *DefaultBackend `json:"defaultBackend,omitempty"`
 }
@@ -185,7 +184,6 @@ type Backend struct {
 	// +optional
 	Port *int32 `json:"port,omitempty"`
 
-	// 灰度
 	// +optional canary weight
 	Weight *int32 `json:"weight,omitempty"`
 
@@ -198,16 +196,16 @@ type Backend struct {
 
 	// +optional
 	ChangeCookieOnFailure bool `json:"changeCookieOnFailure,omitempty"` // whether to set a new cookie when request failed
-	// +optional
+	// +optional +unsupported
 	FailTimeOutSeconds *int `json:"failTimeOut,omitempty"`
-	// +optional
+	// +optional +unsupported
 	MaxFails *int `json:"maxFails,omitempty"`
-	// +optional
+	// +optional +unsupported
 	MaxConns *int `json:"maxConns,omitempty"`
-	// +optional
+	// +optional +unsupported
 	Keepalive *int `json:"keepalive,omitempty"`
 
-	// +optional
+	// +optional +unsupported
 	Options map[string]string `json:"options,omitempty"`
 }
 

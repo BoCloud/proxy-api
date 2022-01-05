@@ -27,9 +27,8 @@ import (
 type UDPRouteSpec struct {
 	// IngressClassName is the name of the IngressClass cluster resource.
 	// +optional
-	IngressClassName *string `json:"ingressClassName,omitempty"`
-	// +optional
-	Streams []Stream `json:"streams,omitempty"`
+	IngressClassName *string  `json:"ingressClassName,omitempty"`
+	Streams          []Stream `json:"streams"`
 }
 
 // UDPRouteStatus defines the observed state of UDPRoute
