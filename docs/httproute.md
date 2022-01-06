@@ -17,19 +17,11 @@
 - httproute支持配置多个域名、域名下多个path、每个path又有不同的配置且每个path支持不同的灰度服务，所以其配置非常复杂
 - 我们拆成几部分来讲述各个字段的功能含义，如是静态配置会具体到该配置会应用到Nginx的哪个配置字段
 
-| 字段                      | 类型                   | 必填 | 描述                                                         | 示例           |
-| ------------------------- | ---------------------- | ---- | ------------------------------------------------------------ | -------------- |
-| Spec.IngressClassName     | *string                | 否   | IngressClass的名称，如果为空则使用默认IngressClass，用于指定哪个Controller处理此资源 | nginx          |
-| Spec.Routes               | array[Route]           | 是   | 多组http路由配置                                             |                |
-| Spec.Routes[0].Host       | string                 | 否   | 域名FQDN                                                     | demo.nginx.com |
-| Spec.Routes[0].Protocol   | string                 | 否   | Nginx转发给后端使用的协议，可选值HTTP、HTTPS、GRPC，默认值HTTP；尚未支持GRPC | HTTP           |
-| Spec.Routes[0].TLS        | *struct[TLS]           | 否   | Host的tls证书，用于Nginx验证请求来源是否合法                 |                |
-| Spec.Routes[0].TLS.Secret | string                 | 是   | 存储tls证书的secret名称，需要和此CRD在同一个namespace下      | tls-cert       |
-| Spec.Routes[0].Proxy      | *struct[Proxy]         | 否   | [proxy](httproute-proxy.md)                                  |                |
-| Spec.Routes[0].Cors       | *struct[Cors]          | 否   | [cors](httproute-cors.md)                                    |                |
-| Spec.Routes[0].Rules      | *struct[HTTPRouteRule] | 是   | 自定义http路由                                               |                |
-| Spec.Routes[0].Options    | map[string]string      | 否   | [options](httproute-options.md)                              |                |
-| Status.Hostname           | string                 | 否   | 该CRD资源的基本状态信息，由控制器填充                        | 尚未支持       |
+| 字段                  | 类型         | 必填 | 描述                                                         | 示例     |
+| --------------------- | ------------ | ---- | ------------------------------------------------------------ | -------- |
+| Spec.IngressClassName | *string      | 否   | IngressClass的名称，如果为空则使用默认IngressClass，用于指定哪个Controller处理此资源 | nginx    |
+| Spec.Routes           | array[Route] | 是   | 多组http路由配置                                             |          |
+| Status.Hostname       | string       | 否   | 该CRD资源的基本状态信息，由控制器填充                        | 尚未支持 |
 
 ##### Route  
 
