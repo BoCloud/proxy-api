@@ -1,8 +1,8 @@
-#### Options
+##### Options
 
-- Options作为特定功能的补充扩展，存在两处可扩展配置
+- options作为特定功能的补充扩展，存在两处可扩展配置
 
-##### Spec.Routes[0].Route.Options
+###### Spec.Routes[0].Options
 
 | 字段 | 类型 | 必填 | 描述 | 示例 |
 | ---- | ---- | ---- | ---- | ---- |
@@ -12,9 +12,9 @@
 
 
 
-##### Spec.Routes[0].Route.Rules[0].HTTPRouteRule.Options
+###### Spec.Routes[0].Rules[0].Options
 
-##### 
+- Options作为特定功能的补充扩展
 
 | 字段            | 类型 | 必填 | 描述 | 示例 |
 | --------------- | ---- | ---- | ---- | ---- |

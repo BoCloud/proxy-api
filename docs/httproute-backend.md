@@ -1,8 +1,8 @@
-#### Backend
+##### Backend
 
-- 支持多个后端服务
+- 后端服务
 
-##### Spec.Routes[0].Route.Rules[0].HTTPRouteRule[0].Backend
+- Spec.Routes[0].Rules[0].Backends[0]
 
 | 字段                  | 类型              | 必填 | 描述                            | 示例     |
 | --------------------- | ----------------- | ---- | ------------------------------- | -------- |
@@ -20,9 +20,9 @@
 
 
 
-##### Spec.Routes[0].Route.Rules[0].HTTPRouteRule[0].Backend[0].HTTPMatch
+###### HTTPMatch
 
-- 匹配规则
+- Spec.Routes[0].Rules[0].Backends[0].HTTPMatch
 
 | 字段     | 类型   | 必填 | 描述                    | 示例   |
 | -------- | ------ | ---- | ----------------------- | ------ |
