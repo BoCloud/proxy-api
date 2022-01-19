@@ -9,22 +9,21 @@
 
 #### Spec
 
-| 字段                  | 类型          | 必填 | 描述                                                         | 示例  |
-| --------------------- | ------------- | ---- | ------------------------------------------------------------ | ----- |
-| Spec.IngressClassName | *string       | 否   | IngressClass的名称，如果为空则使用默认IngressClass，用于指定哪个Controller处理此资源 | nginx |
-| Spec.Streams          | array[Stream] | 是   | 多组tcp路由配置                                              |       |
-| Status.Conditions     | array         | 否   | 该CRD资源的基本状态信息，由控制器填充                        |       |
+| 字段             | 类型                           | 必填 | 描述                                                         | 示例  |
+| ---------------- | ------------------------------ | ---- | ------------------------------------------------------------ | ----- |
+| IngressClassName | *string                        | 否   | IngressClass的名称，如果为空则使用默认IngressClass，用于指定哪个Controller处理此资源 | nginx |
+| Streams          | [[Stream](tcproute.md#stream)] | 是   | 多组tcp路由配置                                              |       |
 
 ##### Stream
 
 - Spec.Streams[0]
 
-| 字段        | 类型         | 必填 | 描述                            | 示例     |
-| ----------- | ------------ | ---- | ------------------------------- | -------- |
-| Port        | int32        | 是   | 外部端口                        | 8001     |
-| TLS         | *struct[TLS] | 否   | 用于需要tls认证的tcp通信        | 尚未支持 |
-| ServiceName | string       | 是   | kubernetes中Service名称         | nginx    |
-| ServicePort | string       | 是   | kubernetes中Service的port字段值 | 8081     |
+| 字段        | 类型                    | 必填 | 描述                            | 示例     |
+| ----------- | ----------------------- | ---- | ------------------------------- | -------- |
+| Port        | int32                   | 是   | 外部端口                        | 8001     |
+| TLS         | *[TLS](tcproute.md#tls) | 否   | 用于需要tls认证的tcp通信        | 尚未支持 |
+| ServiceName | string                  | 是   | kubernetes中Service名称         | nginx    |
+| ServicePort | string                  | 是   | kubernetes中Service的port字段值 | 8081     |
 
 ##### TLS
 
@@ -33,6 +32,12 @@
 | 字段   | 类型   | 必填 | 描述                                                    | 示例        |
 | ------ | ------ | ---- | ------------------------------------------------------- | ----------- |
 | Secret | string | 是   | 存储tls证书的secret名称，需要和此CRD在同一个namespace下 | secret-name |
+
+##### Status
+
+| 字段       | 类型  | 必填 | 描述                                  | 示例 |
+| ---------- | ----- | ---- | ------------------------------------- | ---- |
+| Conditions | array | 否   | 该CRD资源的基本状态信息，由控制器填充 |      |
 
 
 
