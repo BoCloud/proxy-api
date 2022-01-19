@@ -12,7 +12,7 @@
 
 ------
 
-​    Nginx对于http协议的支持非常丰富，HTTPRoute在充分考虑了Nginx配置的基础上，扩展了多种灰度方案支持。也因此HTTPRoute的设计结构相对复杂的多，HTTPRote支持配置多域名、每个域名下多路径、每个路径可以配置不同的灰度发布服务。在路径、服务等又可配置多种可选参数，因此关于HTTPRoute这块的字段解析，会拆分成多个文档分别讲述
+​    `Nginx对于http协议的支持非常丰富，HTTPRoute在充分考虑了Nginx配置的基础上，扩展了多种灰度方案支持。也因此HTTPRoute的设计结构相对复杂的多，HTTPRote支持配置多域名、每个域名下多路径、每个路径可以配置不同的灰度发布服务。在路径、服务等又可配置多种可选参数，因此关于HTTPRoute这块的字段解析，会拆分成多个文档分别讲述`
 
 ------
 
@@ -53,7 +53,7 @@
 
 | 字段           | 类型                                                     | 必填 | 描述                                         | 示例     |
 | -------------- | -------------------------------------------------------- | ---- | -------------------------------------------- | -------- |
-| Path           | string                                                   | 是   | 详情见[path](httproute-path.md)              | /user    |
+| Path           | string                                                   | 是   | 详情见[Path](httproute-path.md)              | /user    |
 | PathType       | string                                                   | 否   | 路径匹配方式exact、prefix、regex，默认prefix | exact    |
 | Rewrite        | string                                                   | 否   | 路径重写，支持普通以及正则等                 | /abc     |
 | Proxy          | *[Proxy](httproute-proxy.md)                             | 否   | 详细信息见Proxy文档                          |          |

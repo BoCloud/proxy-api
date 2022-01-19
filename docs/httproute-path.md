@@ -105,8 +105,8 @@ spec:
 
 | 路径                 | 匹配类型 | 重写       | 描述                                                         | 备注                                             |
 | -------------------- | -------- | ---------- | ------------------------------------------------------------ | ------------------------------------------------ |
-| /exact               | exact    |            | `location ~* "^/exact"`                                      | Rules中存在一个rewrite，所有匹配类型变成正则匹配 |
-| /user                | exact    | /something | `location ~* "^/user"` <br>`rewrite "(?i)/user" /something break;` | 变成正则匹配，已经重写代理路径                   |
+| /exact               | exact    |            | `location ~* "^/exact"`                                      | Rules中存在一个Rewrite，所有匹配类型变成正则匹配 |
+| /user                | exact    | /something | `location ~* "^/user"` <br>`rewrite "(?i)/user" /something break;` | 变成正则匹配，重写代理路径                       |
 | /app                 | prefix   |            | `location ~* "^/app/"`  `rewrite "(?i)/app/" /app break;`<br>`location ~* "^/app" ` | 前缀匹配                                         |
 | /something(/\|$)(.*) | regex    | /$2        | `location ~* /something(/$)(.*)`<br>`rewrite "(?i)/something(/$)(.*)" /$2 break;` | 正则匹配，按照`()`分组，`$2`代表`(.*)`部分       |
 | /exact               | exact    |            | `location = /exact`                                          | Rules没有Rewrite，生成的绝对匹配                 |
