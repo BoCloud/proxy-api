@@ -1,27 +1,27 @@
 #####   Proxy
 
 - 当Nginx接收到客户端发来的请求后，对请求进行解析、路由规则匹配来决定转发到哪个后端服务，在浏览器请求视角看来Nginx是一个代理服务，既然作为一个代理服务，自然就有很多的可配置的代理选项，因此我们在HTTPRoute结构体中增加可选配置字段
-- Proxy出现在HTTPRoute的两个位置，分别是 `Spec.Routes[0].Proxy` 和 `Spec.Routes[0].Rules[0].Proxy`
+- Proxy出现在HTTPRoute的两个位置，分别是 `Spec.Routes[0].Proxy` 和 `Spec.Routes[0].Rules[0].Proxy`，可以为不同的路径分别配置代理
 
-| 字段                 | 类型   | 必填 | 描述                                                | 默认值        |
-| -------------------- | ------ | ---- | --------------------------------------------------- | ------------- |
-| BodySize             | string | 否   | `client_max_body_size 2m;`                          | 1m            |
-| ConnectTimeout       | int    | 否   | `proxy_connect_timeout 6s;`                         | 5             |
-| SendTimeout          | int    | 否   | `proxy_send_timeout 80s;`                           | 60            |
-| ReadTimeout          | int    | 否   | `proxy_read_timeout 80s;`                           | 60            |
-| BuffersNumber        | int    | 否   | `proxy_buffers 15 4k;`                              | 4             |
-| BufferSize           | string | 否   | `proxy_buffer_size 4k;`                             | 4k            |
-| CookieDomain         | string | 否   | `proxy_cookie_domain off;`                          | off           |
-| CookiePath           | string | 否   | `proxy_cookie_path off;`                            | off           |
-| NextUpstream         | string | 否   | `proxy_next_upstream error timeout;`                | error timeout |
-| NextUpstreamTimeout  | int    | 否   | `proxy_next_upstream_timeout 0;`                    | 0             |
-| NextUpstreamTries    | int    | 否   | `proxy_next_upstream_tries 3;`                      | 3             |
-| ProxyRedirectFrom    | string | 否   | `proxy_redirect off;`                               | off           |
-| ProxyRedirectTo      | string | 否   | `proxy_redirect ProxyRedirectFrom ProxyRedirectTo;` | off           |
-| RequestBufering      | string | 否   | `proxy_request_buffering on;`                       | on            |
-| ProxyBuffering       | string | 否   | `proxy_buffering off;`                              | off           |
-| ProxyHTTPVersion     | string | 否   | `proxy_http_version 1.1;`                           | 1.1           |
-| ProxyMaxTempFileSize | string | 否   | `proxy_max_temp_file_size 1024m;`                   | 1024m         |
+| 字段                 | 类型   | 必填 | 描述                                                    | 默认值        |
+| -------------------- | ------ | ---- | ------------------------------------------------------- | ------------- |
+| BodySize             | string | 否   | 最大请求体大小设置<br>`client_max_body_size 2m;`        | 1m            |
+| ConnectTimeout       | int    | 否   | upstream连接超时时间设置<br>`proxy_connect_timeout 6s;` | 5             |
+| SendTimeout          | int    | 否   | upstream发送超时时间设置<br>`proxy_send_timeout 80s;`   | 60            |
+| ReadTimeout          | int    | 否   | updatream读取超时时间设置<br>`proxy_read_timeout 80s;`  | 60            |
+| BuffersNumber        | int    | 否   | `proxy_buffers 15 4k;`                                  | 4             |
+| BufferSize           | string | 否   | `proxy_buffer_size 4k;`                                 | 4k            |
+| CookieDomain         | string | 否   | `proxy_cookie_domain off;`                              | off           |
+| CookiePath           | string | 否   | `proxy_cookie_path off;`                                | off           |
+| NextUpstream         | string | 否   | `proxy_next_upstream error timeout;`                    | error timeout |
+| NextUpstreamTimeout  | int    | 否   | `proxy_next_upstream_timeout 0;`                        | 0             |
+| NextUpstreamTries    | int    | 否   | `proxy_next_upstream_tries 3;`                          | 3             |
+| ProxyRedirectFrom    | string | 否   | `proxy_redirect off;`                                   | off           |
+| ProxyRedirectTo      | string | 否   | `proxy_redirect ProxyRedirectFrom ProxyRedirectTo;`     | off           |
+| RequestBufering      | string | 否   | `proxy_request_buffering on;`                           | on            |
+| ProxyBuffering       | string | 否   | `proxy_buffering off;`                                  | off           |
+| ProxyHTTPVersion     | string | 否   | `proxy_http_version 1.1;`                               | 1.1           |
+| ProxyMaxTempFileSize | string | 否   | `proxy_max_temp_file_size 1024m;`                       | 1024m         |
 
 
 
