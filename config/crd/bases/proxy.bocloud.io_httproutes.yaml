@@ -75,7 +75,7 @@ spec:
                     options:
                       additionalProperties:
                         type: string
-                      description: 自定义nginx特殊配置
+                      description: 特殊配置
                       type: object
                     protocol:
                       description: Protocol specifies the network protocol this listener
@@ -178,7 +178,6 @@ spec:
                                   description: 会话保持
                                   type: string
                                 weight:
-                                  description: 灰度
                                   format: int32
                                   type: integer
                               type: object
@@ -201,7 +200,6 @@ spec:
                                 type: integer
                             type: object
                           defaultBackend:
-                            description: 当default backend 没有配置默认404
                             properties:
                               errorCode:
                                 description: 自定义错误code
@@ -209,7 +207,6 @@ spec:
                                   type: integer
                                 type: array
                               service:
-                                description: 与response code
                                 properties:
                                   name:
                                     description: Name is the referenced service. The
@@ -226,7 +223,7 @@ spec:
                           options:
                             additionalProperties:
                               type: string
-                            description: 自定义nginx特殊配置
+                            description: 特殊配置
                             type: object
                           path:
                             description: Path specifies a HTTP request path matcher.
@@ -289,9 +286,10 @@ spec:
                         type: object
                       type: array
                     tls:
-                      description: SecretName,需要和HttpRoute在同一个namespace下
+                      description: TLS defines TLS configuration for a VirtualServer.
                       properties:
                         secret:
+                          description: SecretName,需要和CRD在同一个namespace下
                           type: string
                       required:
                       - secret

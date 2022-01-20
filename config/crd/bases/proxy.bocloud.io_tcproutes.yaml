@@ -59,15 +59,22 @@ spec:
                       format: int32
                       type: integer
                     tls:
-                      description: SecretName,需要和CRD在同一个namespace下
+                      description: TLS defines TLS configuration for a VirtualServer.
                       properties:
                         secret:
+                          description: SecretName,需要和CRD在同一个namespace下
                           type: string
                       required:
                       - secret
                       type: object
+                  required:
+                  - port
+                  - serviceName
+                  - servicePort
                   type: object
                 type: array
+            required:
+            - streams
             type: object
           status:
             description: TCPRouteStatus defines the observed state of TCPRoute
