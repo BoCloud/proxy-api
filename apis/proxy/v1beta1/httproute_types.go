@@ -66,8 +66,8 @@ type Route struct {
 	Proxy *Proxy `json:"proxy,omitempty"`
 	// +optional
 	Cors *Cors `json:"cors,omitempty"`
-	// 特殊配置支持
-	// +optional
+	// 特殊配置
+	// +optional +unsupported
 	Options map[string]string `json:"options,omitempty"`
 }
 
@@ -99,8 +99,8 @@ type HTTPRouteRule struct {
 	Cors *Cors `json:"cors,omitempty"`
 	// +optional
 	RateLimit RateLimit `json:"rateLimit,omitempty"`
-	// 自定义nginx特殊配置
-	// +optional
+	// 特殊配置
+	// +optional +unsupported
 	Options map[string]string `json:"options,omitempty"`
 	// service
 	// +optional
@@ -205,12 +205,11 @@ type Backend struct {
 	// +optional +unsupported
 	Keepalive *int `json:"keepalive,omitempty"`
 
-	// +optional +unsupported
+	// +optional
 	Options map[string]string `json:"options,omitempty"`
 }
 
 type DefaultBackend struct {
-	// 与response code
 	// +optional
 	Service *DefaultService `json:"service,omitempty"`
 	// 自定义错误code

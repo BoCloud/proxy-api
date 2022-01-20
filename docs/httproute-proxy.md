@@ -4,7 +4,7 @@
 - Proxy出现在HTTPRoute的两个位置，分别是 `Spec.Routes[0].Proxy` 和 `Spec.Routes[0].Rules[0].Proxy`，可以为不同的路径分别配置代理
 
 | 字段                 | 类型   | 必填 | 描述                                                    | 默认值        |
-| -------------------- | ------ | ---- | ------------------------------------------------------- | ------------- |
+| :------------------- | ------ | ---- | ------------------------------------------------------- | :------------ |
 | BodySize             | string | 否   | 最大请求体大小设置<br>`client_max_body_size 2m;`        | 1m            |
 | ConnectTimeout       | int    | 否   | upstream连接超时时间设置<br>`proxy_connect_timeout 6s;` | 5             |
 | SendTimeout          | int    | 否   | upstream发送超时时间设置<br>`proxy_send_timeout 80s;`   | 60            |
@@ -117,4 +117,8 @@ spec:
 		}
 	}
 ```
+
+------
+
+​																					  [跳转HTTRoute](httproute.md)
 

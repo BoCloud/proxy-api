@@ -1,6 +1,6 @@
 #### TCPRoute
 
-- TCPRoute是Kubernetes中的一种自定义资源，在Kubernetes中使用TCPRoute来定义tcp路由信息，Ingress Controller会监听该资源的创建、更新、删除等事件并同步更新Nginx配置。当在集群中创建TCPRoute，Ingress Controller会首先对该资源的配置进行检查，检查通过后则TCPRoute创建成功，Ingress Controller接收到TCPRoute的创建成功事件并更新Nginx配置。
+- TCPRoute是Kubernetes中的一种自定义资源，在Kubernetes中使用TCPRoute来定义tcp路由信息，Ingress Controller会监听该资源的创建、更新、删除等事件并同步更新Nginx配置。在集群中创建TCPRoute时，Ingress Controller会首先对该资源的Spec进行检查，检查通过后则TCPRoute创建成功，Ingress Controller接收到TCPRoute的创建成功事件并更新Nginx配置。
 
 - 文件位置： [tcproute](../apis/proxy/v1beta1/tcproute_types.go)
 

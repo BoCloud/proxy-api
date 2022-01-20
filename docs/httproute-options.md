@@ -58,5 +58,9 @@ spec:
           pathType: exact
           backends:
             - name: service2
-              port: 8080
+              port: 8080	
 ```
+
+------
+
+​																					  [跳转HTTRoute](httproute.md)

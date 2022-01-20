@@ -1,7 +1,7 @@
 ##### Backend
 
-- 一个访问路径可以配置多个发布服务，HTTPRoute支持设置基于权重的灰度发布和基于请求的灰度发布，关于灰度发布详情，请参考下方配置实例
-- 一个k8s服务对应多个endponts，即多个pod。HTTPRoute支持为每一个独立的服务配置会话保持策略，开启了会话保持的服务会根据请求的来源活请求cookie分辨客户端，并始终将同一客户端请求发送到固定的一个后端pod。关于基于IP-Hash的会话保持和基于sticky cookie的会话保持详情，请参考下方配置实例
+- 一个访问路径可以配置多个发布服务，HTTPRoute支持设置基于权重的灰度发布和基于请求的灰度发布，关于灰度发布详情，请[参考](httproute-backend.md#灰度发布)
+- 一个k8s服务对应多个endpoints，即多个pod。HTTPRoute支持为每一个独立的服务配置会话保持策略，开启了会话保持的服务会根据请求的来源活请求cookie分辨客户端，并始终将同一客户端请求发送到固定的一个后端pod。关于会话保持详情请[参考](httproute-backend.md#会话保持)
 - Backend出现在HTTPRoute的`Spec.Routes[0].Rules[0].Backends[0]`位置
 
 | 字段                  | 类型                                                        | 必填 | 描述                                                         | 示例     |
@@ -29,7 +29,7 @@
 | Type     | string | 是   | 支持两种类型 `header`和`cookie`，顾名思义`header`类型需要请求header中携带对应的`key:value` | header |
 | GroupId  | int    | 是   | 当配置多组HTTPMatch时，其中GroupId相同的为一组，同组内为`与`关系，不同组间为`或`关系<br>当nginx进行路由转发时，请求需要满足同组内所有条件才会选择该service | 2      |
 | Key      | string | 是   | 请求中需要在`Type(header/cookie)`中携带的`Key`               | name   |
-| Operator | stirng | 是   | 支持`exact: (key==value)`和 `regex: (key(regex)value)`两种匹配方式 | exact  |
+| Operator | stirng | 是   | 支持`exact: (key eq value)`和 `regex: (key regex value)`两种匹配方式 | exact  |
 | Value    | strng  | 是   | 解析请求，根据`Type(header/cookie)` 和 `Key`获取该`Value`值  | test   |
 
 
@@ -69,7 +69,7 @@ spec:
 - 解析
 
 ```
-1. 当请求访问/weight时，nginx根据backends weight比例转发请求，比如流量到达echo-v1的比率=40/(20+40+80)
+1. 当请求访问/weight时，nginx根据backends weight比例转发请求，比如流量到达echo-v1的比率为 40/(20+40+80)
 2. 在backends中存在一个weight不为0，则灰度发布策略便是基于权重
 3. 如果存在一个service的weight为0或者未设置，则流量永远不会到达该服务
 4. 至少存在一个service的weight>0，这个在HTTPRoute创建阶段便进行了检查，如果不满足则创建不成功
@@ -134,6 +134,9 @@ spec:
 
 ###### 会话保持
 
+- 基于sticky cookie的会话保持，负载均衡器会在某个服务第一次相应客户端请求时，为客户端设置一个sticky cookie，客户端下次请求这个服务时会带上这个cookie，负载均衡器根据sticky cookie的内容从服务的pod组里取出与第一次响应相同的pod，达到会话保持的效果
+- 当服务里的pod出现错误时，负载均衡客户会根据sticky cookie仍然将请求发送到这个pod，为避免此种情形，可选择开启`changeCookieOnFailure: true`，当固定后端pod失败时，为该客户端重设一个新的sticky cookie，后续改客户端的请求将发送到其它pod。
+
 ```yaml
 apiVersion: proxy.bocloud.io/v1beta1
 kind: HTTPRoute
@@ -166,4 +169,8 @@ spec:
 2. 会话保持策略在一个service内生效，即如果灰度发布情况优先选择一个灰度服务，然后再服务内多个pod ip实现会话亲和性
 3. 当基于cookie会话保持时，支持配置changeCookieOnFailure: true，即cookie失效后更换其他pod ip
 ```
+
+------
+
+​																					  [跳转HTTRoute](httproute.md)
 

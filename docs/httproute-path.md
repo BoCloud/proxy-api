@@ -111,3 +111,6 @@ spec:
 | /something(/\|$)(.*) | regex  | /$2        | `location ~* /something(/$)(.*)`<br>`rewrite "(?i)/something(/$)(.*)" /$2 break;` | 正则匹配，按照`()`分组，`$2`代表`(.*)`部分       |
 | /exact               | exact  |            | `location = /exact`                                          | Rules没有Rewrite，生成的绝对匹配                 |
 
+------
+
+​																					  [跳转HTTRoute](httproute.md)
