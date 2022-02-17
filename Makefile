@@ -131,3 +131,12 @@ endef
 update-codegen:
 	chmod +x ./hack/update-codegen.sh
 	./hack/update-codegen.sh
+
+.PHONY: legacy
+legacy: legacy-gen ## Generate WebhookConfiguration, ClusterRole and CustomResourceDefinition objects.
+	$(CONTROLLER_GEN) rbac:roleName=manager-role crd webhook paths="./..." output:crd:artifacts:config=config/crd/legacy
+
+.PHONY: legacy-gen
+legacy-gen: ## Download controller-gen locally if necessary.
+	rm -rf  bin/*
+	$(call go-get-tool,$(CONTROLLER_GEN),sigs.k8s.io/controller-tools/cmd/controller-gen@v0.2.4)
