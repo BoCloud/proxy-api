@@ -135,7 +135,7 @@ spec:
 ###### 会话保持
 
 - 基于sticky cookie的会话保持，负载均衡器会在某个服务第一次相应客户端请求时，为客户端设置一个sticky cookie，客户端下次请求这个服务时会带上这个cookie，负载均衡器根据sticky cookie的内容从服务的pod组里取出与第一次响应相同的pod，达到会话保持的效果
-- 当服务里的pod出现错误时，负载均衡客户会根据sticky cookie仍然将请求发送到这个pod，为避免此种情形，可选择开启`changeCookieOnFailure: true`，当固定后端pod失败时，为该客户端重设一个新的sticky cookie，后续改客户端的请求将发送到其它pod。
+- 当服务里的pod出现错误时，负载均衡客户会根据sticky cookie仍然将请求发送到这个pod，为避免此种情形，可选择开启`changeCookieOnFailure: true`，当固定后端pod失败时，为该客户端重设一个新的sticky cookie，后续该客户端的请求将发送到其它pod。
 
 ```yaml
 apiVersion: proxy.bocloud.io/v1beta1
