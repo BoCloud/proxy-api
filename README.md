@@ -11,6 +11,8 @@
 - 使用命令`make manifests` 生成CRD资源
 - 使用命令`make controller-gen` 生成controllers代码
 
+- 使用命令`make legacy` 生成v1beta1版本的CRD资源,支持低于v1.16版本k8s
+
 #### 使用文档
 
 - [httproute](docs/httproute.md)
