@@ -89,7 +89,8 @@ const (
 type HTTPRouteRule struct {
 	// Path specifies a HTTP request path matcher. If this field is not
 	// specified, a default prefix match on the "/" path is provided.
-	Path     string    `json:"path"`
+	Path string `json:"path"`
+	// +optional
 	PathType *PathType `json:"pathType"`
 	// +optional
 	Rewrite string `json:"rewrite,omitempty"`

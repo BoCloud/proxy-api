@@ -282,7 +282,6 @@ spec:
                           type: string
                       required:
                       - path
-                      - pathType
                       type: object
                     type: array
                   tls:
