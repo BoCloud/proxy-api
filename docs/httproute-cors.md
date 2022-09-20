@@ -3,14 +3,14 @@
 - HTTPRoute跨域配置
 - Cors出现在HTTPRoute的两个位置，分别是 `Spec.Routes[0].Cors` 和 `Spec.Routes[0].Rules[0].Cors`
 
-| 字段                 | 类型   | 必填 | 描述                                                         | 默认值                                                       |
-| -------------------- | ------ | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| CorsAllowOrigin      | string | 否   | `Access-Control-Allow-Origin: *`                             | `*`                                                          |
-| CorsAllowMethods     | string | 否   | `Access-Control-Allow-Methods: Options`                      | `GET, PUT, POST, DELETE, PATCH, OPTIONS`                     |
-| CorsAllowHeaders     | string | 否   | `Access-Control-Allow-Headers: DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization` | `DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization` |
-| CrosAllowCredentials | bool   | 否   | `Access-Control-Allow-Credentials: true`                     | 默认不设置                                                         |
-| CorsExposeHeaders    | string | 否   | `Access-Control-Expose-Headers: `                            | ""                                                           |
-| CorsMaxAge           | int    | 否   | `Access-Control-Max-Age: 1700`                               | 1728000                                                      |
+| 字段                 | 类型       | 必填 | 描述                                                         | 默认值                                                       |
+| -------------------- |----------| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| CorsAllowOrigin      | []string | 否   | `Access-Control-Allow-Origin: *`                             | `*`                                                          |
+| CorsAllowMethods     | string   | 否   | `Access-Control-Allow-Methods: Options`                      | `GET, PUT, POST, DELETE, PATCH, OPTIONS`                     |
+| CorsAllowHeaders     | string   | 否   | `Access-Control-Allow-Headers: DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization` | `DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization` |
+| CrosAllowCredentials | bool     | 否   | `Access-Control-Allow-Credentials: true`                     | 默认不设置                                                         |
+| CorsExposeHeaders    | string   | 否   | `Access-Control-Expose-Headers: `                            | ""                                                           |
+| CorsMaxAge           | int      | 否   | `Access-Control-Max-Age: 1700`                               | 1728000                                                      |
 
 
 

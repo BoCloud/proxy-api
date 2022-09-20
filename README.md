@@ -18,3 +18,7 @@
 - [httproute](docs/httproute.md)
 - [tcproute](docs/tcproute.md)
 - [udproute](docs/udproute.md)
+
+#### 特别说明
+
+legacy版本CorsAllowOrigin字段为string类型，最新版为[]string类型

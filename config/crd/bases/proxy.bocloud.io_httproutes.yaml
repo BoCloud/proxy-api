@@ -64,7 +64,9 @@ spec:
                         corsAllowMethods:
                           type: string
                         corsAllowOrigin:
-                          type: string
+                          items:
+                            type: string
+                          type: array
                         corsExposeHeaders:
                           type: string
                         corsMaxAge:
@@ -193,7 +195,9 @@ spec:
                               corsAllowMethods:
                                 type: string
                               corsAllowOrigin:
-                                type: string
+                                items:
+                                  type: string
+                                type: array
                               corsExposeHeaders:
                                 type: string
                               corsMaxAge:

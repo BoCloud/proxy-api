@@ -232,7 +232,7 @@ type DefaultService struct {
 // Cors contains the Cors configuration to be used in the HttpRoute
 type Cors struct {
 	// +optional
-	CorsAllowOrigin string `json:"corsAllowOrigin,omitempty"`
+	CorsAllowOrigin []string `json:"corsAllowOrigin,omitempty"`
 	// +optional
 	CorsAllowMethods string `json:"corsAllowMethods,omitempty"`
 	// +optional
