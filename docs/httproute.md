@@ -20,10 +20,10 @@
 
 ##### Spec
 
-| 字段             | 类型                          | 必填 | 描述                                                         | 示例  |
-| :--------------- | ----------------------------- | ---- | ------------------------------------------------------------ | ----- |
-| IngressClassName | *string                       | 否   | IngressClass的名称，如果为空则使用默认IngressClass，用于指定哪个Controller处理此资源 | nginx |
-| Routes           | [[Route](httproute.md#route)] | 是   | 多组http路由配置                                             |       |
+| 字段             | 类型                          | 必填 | 描述                                                                      | 示例  |
+| :--------------- | ----------------------------- | ---- |-------------------------------------------------------------------------| ----- |
+| IngressClassName | *string                       | 否   | IngressClass的名称，如果为空则使用默认IngressClass(1.19以下版本必填)，用于指定哪个Controller处理此资源 | nginx |
+| Routes           | [[Route](httproute.md#route)] | 是   | 多组http路由配置                                                              |       |
 
 ##### Route  
 
