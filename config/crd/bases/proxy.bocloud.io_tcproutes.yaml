@@ -151,6 +151,34 @@ spec:
                   - type
                   type: object
                 type: array
+              streamsCondition:
+                items:
+                  properties:
+                    port:
+                      format: int32
+                      type: integer
+                    serviceName:
+                      type: string
+                    servicePort:
+                      format: int32
+                      type: integer
+                    tls:
+                      description: TLS defines TLS configuration for a VirtualServer.
+                      properties:
+                        secret:
+                          description: SecretName,需要和CRD在同一个namespace下
+                          type: string
+                      required:
+                      - secret
+                      type: object
+                  required:
+                  - port
+                  - serviceName
+                  - servicePort
+                  type: object
+                type: array
+            required:
+            - streamsCondition
             type: object
         type: object
     served: true
